@@ -59,7 +59,7 @@ jobs:
     needs: [status-check]
     if: github.event_name == 'pull_request' && github.event.pull_request.user.type == 'Bot'
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     env:
       PR_NUMBER: ${{ github.event.pull_request.number }}
