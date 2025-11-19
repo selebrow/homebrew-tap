@@ -25,8 +25,7 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        # os: [ ubuntu-22.04, macos-15-intel, macos-26 ]
-        os: [ macos-15-intel, macos-26 ]
+        os: [ ubuntu-22.04, macos-15-intel, macos-26 ]
     runs-on: ${{ matrix.os }}
     permissions:
       actions: read
@@ -73,9 +72,9 @@ jobs:
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr review --approve $PR_NUMBER
+        run: gh pr review --approve "$PR_NUMBER"
 
       - name: Enable Auto-merge for PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --rebase $PR_NUMBER
+        run: gh pr merge --auto --rebase "$PR_NUMBER"
