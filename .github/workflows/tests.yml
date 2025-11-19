@@ -59,12 +59,19 @@ jobs:
     needs: [status-check]
     if: github.event_name == 'pull_request' && github.event.pull_request.user.type == 'Bot'
     permissions:
+      contents: read
       pull-requests: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr review --approve
+
       - name: Enable Auto-merge for PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
