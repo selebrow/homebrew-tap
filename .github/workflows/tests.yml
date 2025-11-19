@@ -77,4 +77,4 @@ jobs:
       - name: Enable Auto-merge for PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --rebase "$PR_NUMBER"
+        run: gh pr merge --auto --rebase --delete-branch "$PR_NUMBER"
