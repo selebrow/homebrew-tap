@@ -61,6 +61,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -70,9 +72,9 @@ jobs:
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr review --approve
+        run: gh pr review --approve $PR_NUMBER
 
       - name: Enable Auto-merge for PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --rebase
+        run: gh pr merge --auto --rebase $PR_NUMBER
