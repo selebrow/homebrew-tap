@@ -1,12 +1,12 @@
 class Selebrow < Formula
   desc "Run WebDriver/Playwright UI tests in Docker or Kubernetes environments"
   homepage "https://selebrow.dev/"
-  version "1.0.7"
+  version "1.1.1"
   license "Apache-2.0"
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/selebrow/selebrow/releases/download/v#{version}/selebrow-darwin-amd64"
-    sha256 "183c3fad81823a2eab9da870a52c399afed6598a96e92b4af3efe5294ebac80f"
+    sha256 "795eef1d772ce932e00b68362ee5d2a6c04d6f2eb33ece86a769b9969058aa01"
 
     def install
       bin.install "selebrow-darwin-amd64" => "selebrow"
@@ -15,7 +15,7 @@ class Selebrow < Formula
 
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/selebrow/selebrow/releases/download/v#{version}/selebrow-darwin-arm64"
-    sha256 "a8e25ec8c77d2b8ece33081a17795842fb53ff70a9628676db766a9a4a7ad33e"
+    sha256 "e6ebbc9f1d970508cc9182820808544ef430b915256e232f16ef745dda4844ff"
 
     def install
       bin.install "selebrow-darwin-arm64" => "selebrow"
@@ -24,7 +24,7 @@ class Selebrow < Formula
 
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/selebrow/selebrow/releases/download/v#{version}/selebrow-linux-amd64"
-    sha256 "729456df465ba4e29a390c9ed728666259007b7c77bcb16d6254d297b05800ae"
+    sha256 "bb7254d12d270a423c756639d27737776c7f7846489afe5cd2ad47b2b7184fbe"
 
     def install
       bin.install "selebrow-linux-amd64" => "selebrow"
@@ -33,7 +33,7 @@ class Selebrow < Formula
 
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     url "https://github.com/selebrow/selebrow/releases/download/v#{version}selebrow-linux-arm64"
-    sha256 "d0057b5b058139184affe500ec12561133a07776290fecd51c8e335890eb97aa"
+    sha256 "c9f900b348fb6eb86b977e58280fa1435390c30cdf5980d2c528ac197542269c"
 
     def install
       bin.install "selebrow-linux-arm64" => "selebrow"
